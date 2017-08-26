@@ -2,7 +2,7 @@ package br.com.senai.view;
 
 import br.com.senai.utilitarios.Util;
 
-public class MenuView {
+public class IndexView {
 
 	public String exibirMenuPrincipal() {
 		Util.limpar();

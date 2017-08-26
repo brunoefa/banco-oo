@@ -24,12 +24,11 @@ public class Cliente {
 		this.cpf = cpf;
 	}
 	
-	public String visualizarCliente() {
-		return this.nome + " - " + this.cpf;
-	}
-	
 	public String getPrimeroNome() {
-		return this.nome.substring(0, this.nome.indexOf(" "));
+		if(this.nome.contains(" ")) {
+			return this.nome.substring(0, this.nome.indexOf(" "));
+		}
+		return this.nome;
 	}
 	
 	public String getUltimoNome() {

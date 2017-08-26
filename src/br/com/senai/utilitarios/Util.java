@@ -11,11 +11,12 @@ public class Util {
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			op = br.readLine();
 		} catch (Exception e) {
-			System.out.println("Ocorreu um erro de leitura.");
+			escreva("Ocorreu um erro de leitura.");
 		}
 		return op;
 	}
 
+	// Utilizado como alternativa para testes console do Eclipse
 	public static void limpar() {
 		for (int i = 0; i < 50; ++i) System.out.println();
 	}
@@ -26,14 +27,12 @@ public class Util {
 	
 	public static void continuar() {
 		escreva("");
-		escreva("Digite 0 para continuar");
+		escreva("Digite enter para continuar");
 		leia();
 	}
 	
 	public static void continuar(String s) {
 		escreva(s);
-		escreva("");
-		escreva("Digite 0 para continuar");
-		leia();
+		continuar();
 	}
 }

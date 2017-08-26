@@ -10,48 +10,67 @@ public class ClienteView {
 	public Cliente capturarCliente() {
 		Util.limpar();
 		Util.escreva("Cadastro de cliente");
+		Util.escreva("-----------------");
 		Util.escreva("");
-		
+
 		Util.escreva("Nome:");
 		String nome = Util.leia();
 		Util.escreva("CPF:");
 		String cpf = Util.leia();
-		
-		Cliente c = new Cliente(nome, cpf);
-		return c;
+
+		return new Cliente(nome, cpf);
 	}
-	
+
 	public void mostrarCliente(Cliente c) {
 		Util.limpar();
-		Util.escreva("Visualizar " + c.getPrimeroNome());
+		Util.escreva("Visualizar Cliente");
+		Util.escreva("-----------------");
 		Util.escreva("");
-		Util.escreva("Nome: " + c.getNome());
-		Util.escreva("CPF: " + c.getCpf());
+		Util.escreva("Nome:" + c.getNome());
+		Util.escreva("CPF:" + c.getCpf());
 		Util.continuar();
 	}
-	
+
 	public String exibirMenuCliente() {
 		Util.limpar();
-		System.out.println("Menu Clientes");
-		System.out.println("-----------------");
-		System.out.println("1. Cadastrar Cliente");
-		System.out.println("2. Listar Clientes");
-		System.out.println("3. Buscar Cliente");
-		System.out.println("4. Excluir Cliente");
-		System.out.println("5. Alterar Cliente");
-		System.out.println("0. Voltar");
-		System.out.println("");
-		System.out.println("Informe a opção desejada: ");
+		Util.escreva("Menu Clientes");
+		Util.escreva("-----------------");
+		Util.escreva("1. Cadastrar Cliente");
+		Util.escreva("2. Listar Clientes");
+		Util.escreva("3. Buscar Cliente");
+		Util.escreva("4. Excluir Cliente");
+		Util.escreva("5. Alterar Cliente");
+		Util.escreva("0. Voltar");
+		Util.escreva("");
+		Util.escreva("Informe a opção desejada: ");
 		return Util.leia();
 	}
 
 	public void listarClientes(ArrayList<Cliente> listaClientes) {
 		Util.limpar();
-		System.out.println("Listar Clientes");
-		System.out.println("-----------------");		
+		Util.escreva("Listar Clientes");
+		Util.escreva("-----------------");
 		for (Cliente cliente : listaClientes) {
-			System.out.println(cliente.getCpf() + " - " + cliente.getNome());
+			Util.escreva(cliente.getCpf() + " - " + cliente.getNome());
 		}
-	}	
-	
+		Util.escreva("");
+		Util.continuar(listaClientes.size() + " cliente(s) encontrado(s)");
+	}
+
+	public String capturarCpf() {
+		Util.limpar();
+		Util.escreva("Buscar Cliente");
+		Util.escreva("-----------------");
+		Util.escreva("Informe o CPF");
+		return Util.leia();
+	}
+
+	public String capturarNome() {
+		Util.limpar();
+		Util.escreva("Alterar Cliente");
+		Util.escreva("-----------------");
+		Util.escreva("Informe o novo nome");
+		return Util.leia();
+	}
+
 }

@@ -1,18 +1,22 @@
 package br.com.senai.controller;
 
 import br.com.senai.utilitarios.Util;
-import br.com.senai.view.MenuView;
+import br.com.senai.view.IndexView;
 
 public class IndexController {
 
 	public static void main(String[] args) {
 		String opcao = "";
 		while (!opcao.equals("0")) {
-			MenuView m = new MenuView();
+			IndexView m = new IndexView();
 			opcao = m.exibirMenuPrincipal();
 			
 			if (opcao.equals("1") ) {
 				new ClienteController(); 
+			} else if (opcao.equals("2") ) {
+				//new ContaController(); 
+			} else if (opcao.equals("3") ) {
+				//new TransacaoController(); 
 			} else {
 				encerrarPrograma();
 			}
@@ -23,5 +27,4 @@ public class IndexController {
 		Util.limpar();
 		Util.escreva("Programa encerrado.");
 	}
-
 }

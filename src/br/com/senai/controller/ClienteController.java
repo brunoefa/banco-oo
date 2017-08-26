@@ -35,22 +35,41 @@ public class ClienteController {
 	
 	public void listarClientes() {
 		cv.listarClientes(listaClientes);
-		Util.continuar();
 	}
 	
-	public void buscarCliente() {
-		Util.continuar("Implementar...");
+	public Cliente buscarCliente() {
+		Cliente clienteEncontrado = null;
+		String cpf = cv.capturarCpf();
+		for (Cliente cliente : listaClientes) {
+			if (cliente.getCpf().equals(cpf)) {
+				clienteEncontrado = cliente;
+				mostrarCliente(cliente);
+				break;
+			}
+		}
+		if (clienteEncontrado == null) {
+			Util.continuar("Nenhum cliente foi encontrado");
+		}
+		return clienteEncontrado;
 	}
 	
-	public void mostrarCliente() {
-		Util.continuar("Implementar...");
+	public void mostrarCliente(Cliente c) {
+		cv.mostrarCliente(c);
 	}
-	
+		
 	public void alterarCliente() {
-		Util.continuar("Implementar...");
+		Cliente cliente = buscarCliente();
+		if (cliente != null) {
+			cliente.setNome(cv.capturarNome());
+			Util.continuar("Cliente alterado com sucesso");
+		}
 	}
 	
 	public void excluirCliente() {
-		Util.continuar("Implementar...");
+		Cliente cliente = buscarCliente();
+		if (cliente != null) {
+			listaClientes.remove(cliente);
+			Util.continuar("Cliente removido com sucesso");
+		}
 	}
 }

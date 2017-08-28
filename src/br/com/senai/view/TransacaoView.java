@@ -13,6 +13,7 @@ public class TransacaoView {
 		Util.escreva("3. Listar Transações por CPF");
 		Util.escreva("4. Listar Transações por Conta");
 		Util.escreva("5. Listar Transações por Agência");
+		Util.escreva("6. Listar Transações por Data");
 		Util.escreva("0. Voltar");
 		Util.escreva("");
 		Util.escreva("Informe a opção desejada: ");

@@ -8,6 +8,9 @@ public class TransacaoController {
 	
 	public TransacaoController() {
 		tv = new TransacaoView();
+	}
+	
+	public void iniciar() {
 		tv.exibirMenuTransacao();
 	}
 }

@@ -8,6 +8,9 @@ public class ContaController {
 	
 	public ContaController() {
 		cv = new ContaView();
+	}
+	
+	public void iniciar() {
 		cv.exibirMenuConta();
 	}
 }

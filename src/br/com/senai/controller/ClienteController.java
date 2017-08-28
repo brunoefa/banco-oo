@@ -13,6 +13,9 @@ public class ClienteController {
 	
 	public ClienteController() {
 		cv = new ClienteView();
+	}
+	
+	public void iniciar() {
 		String opcao = cv.exibirMenuCliente();
 		if (opcao.equals("1")) {
 			cadastrarCliente();

@@ -12,11 +12,11 @@ public class IndexController {
 			opcao = m.exibirMenuPrincipal();
 			
 			if (opcao.equals("1") ) {
-				new ClienteController(); 
+				new ClienteController().iniciar(); 
 			} else if (opcao.equals("2") ) {
-				new ContaController();
+				new ContaController().iniciar();
 			} else if (opcao.equals("3") ) {
-				new TransacaoController(); 
+				new TransacaoController().iniciar(); 
 			} else {
 				encerrarPrograma();
 			}

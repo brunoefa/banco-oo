@@ -14,9 +14,9 @@ public class IndexController {
 			if (opcao.equals("1") ) {
 				new ClienteController(); 
 			} else if (opcao.equals("2") ) {
-				//new ContaController(); 
+				new ContaController();
 			} else if (opcao.equals("3") ) {
-				//new TransacaoController(); 
+				new TransacaoController(); 
 			} else {
 				encerrarPrograma();
 			}

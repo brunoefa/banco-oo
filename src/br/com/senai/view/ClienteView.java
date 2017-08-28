@@ -40,6 +40,8 @@ public class ClienteView {
 		Util.escreva("3. Buscar Cliente");
 		Util.escreva("4. Excluir Cliente");
 		Util.escreva("5. Alterar Cliente");
+		Util.escreva("6. Consultar saldo");
+		Util.escreva("7. Gerar extrato");
 		Util.escreva("0. Voltar");
 		Util.escreva("");
 		Util.escreva("Informe a opção desejada: ");

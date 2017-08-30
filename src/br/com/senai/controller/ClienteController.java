@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import br.com.senai.model.Cliente;
 import br.com.senai.model.Conta;
+import br.com.senai.model.dao.ClienteDao;
 import br.com.senai.utilitarios.Util;
 import br.com.senai.view.ClienteView;
 
@@ -11,9 +12,11 @@ public class ClienteController {
 
 	public static ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
 	private ClienteView cv;
+	private ClienteDao dao;
 	
 	public ClienteController() {
 		cv = new ClienteView();
+		dao = new ClienteDao();
 	}
 	
 	public void iniciar() {
@@ -33,7 +36,8 @@ public class ClienteController {
 	
 	public void cadastrarCliente() {
 		Cliente cliente = cv.capturarCliente();
-		listaClientes.add(cliente);
+//		listaClientes.add(cliente);
+		dao.salvar(cliente);
 		Util.continuar("Cliente cadastrado com sucesso!");
 	}
 	

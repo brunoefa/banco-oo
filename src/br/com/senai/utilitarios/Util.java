@@ -25,6 +25,10 @@ public class Util {
 		System.out.println(s);
 	}
 	
+	public static void escrevaErro(String s) {
+		System.err.println(s);
+	}
+	
 	public static void continuar() {
 		escreva("");
 		escreva("Digite enter para continuar");

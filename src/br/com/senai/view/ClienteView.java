@@ -7,6 +7,23 @@ import br.com.senai.utilitarios.Util;
 
 public class ClienteView {
 
+	public String exibirMenuCliente() {
+		Util.limpar();
+		Util.escreva("Menu Clientes");
+		Util.escreva("-----------------");
+		Util.escreva("1. Cadastrar Cliente");
+		Util.escreva("2. Listar Clientes");
+		Util.escreva("3. Buscar Cliente");
+		Util.escreva("4. Excluir Cliente");
+		Util.escreva("5. Alterar Cliente");
+		Util.escreva("6. Consultar saldo");
+		Util.escreva("7. Gerar extrato");
+		Util.escreva("0. Voltar");
+		Util.escreva("");
+		Util.escreva("Informe a opção desejada: ");
+		return Util.leia();
+	}
+	
 	public Cliente capturarCliente() {
 		Util.limpar();
 		Util.escreva("Cadastro de cliente");
@@ -29,23 +46,6 @@ public class ClienteView {
 		Util.escreva("Nome:" + c.getNome());
 		Util.escreva("CPF:" + c.getCpf());
 		Util.continuar();
-	}
-
-	public String exibirMenuCliente() {
-		Util.limpar();
-		Util.escreva("Menu Clientes");
-		Util.escreva("-----------------");
-		Util.escreva("1. Cadastrar Cliente");
-		Util.escreva("2. Listar Clientes");
-		Util.escreva("3. Buscar Cliente");
-		Util.escreva("4. Excluir Cliente");
-		Util.escreva("5. Alterar Cliente");
-		Util.escreva("6. Consultar saldo");
-		Util.escreva("7. Gerar extrato");
-		Util.escreva("0. Voltar");
-		Util.escreva("");
-		Util.escreva("Informe a opção desejada: ");
-		return Util.leia();
 	}
 
 	public void listarClientes(ArrayList<Cliente> listaClientes) {

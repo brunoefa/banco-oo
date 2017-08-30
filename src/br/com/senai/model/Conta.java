@@ -6,7 +6,7 @@ public class Conta {
 	
 	private String agencia;
 	private String numero;
-	private Cliente cliente;
+	private Cliente cliente; 
 	private ArrayList<Transacao> listaTransacao;
 	
 	public Conta(String agencia, String numero, Cliente cliente) {
@@ -29,25 +29,21 @@ public class Conta {
 		this.numero = numero;
 	}
 	
-	public ArrayList<Transacao> getListaTransacao() {
-		return listaTransacao;
-	}
-	public void setListaTransacao(ArrayList<Transacao> listaTransacao) {
-		this.listaTransacao = listaTransacao;
-	}
 	public Cliente getCliente() {
 		return cliente;
 	}
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+	public ArrayList<Transacao> getListaTransacao() {
+		return listaTransacao;
+	}
+	public void setListaTransacao(ArrayList<Transacao> listaTransacao) {
+		this.listaTransacao = listaTransacao;
+	}
 	
 	public void setTransacao(Transacao transacao) {
 		this.listaTransacao.add(transacao);
-	}
-	
-	public String visualizarConta() {
-		return "Ag: " + this.agencia + " - Conta: " + this.numero;
 	}
 	
 	public ArrayList<Transacao> consultarExtrato() {
@@ -61,5 +57,4 @@ public class Conta {
 		}
 		return saldo;
 	}
-
 }

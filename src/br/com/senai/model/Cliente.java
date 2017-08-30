@@ -4,6 +4,7 @@ public class Cliente {
 	
 	private String nome;
 	private String cpf;
+	private Conta conta;
 	
 	public Cliente(String nome, String cpf) {
 		super();
@@ -24,6 +25,14 @@ public class Cliente {
 		this.cpf = cpf;
 	}
 	
+	public Conta getConta() {
+		return conta;
+	}
+
+	public void setConta(Conta conta) {
+		this.conta = conta;
+	}
+
 	public String getPrimeroNome() {
 		if(this.nome.contains(" ")) {
 			return this.nome.substring(0, this.nome.indexOf(" "));

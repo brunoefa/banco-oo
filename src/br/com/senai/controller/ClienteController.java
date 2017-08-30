@@ -3,12 +3,13 @@ package br.com.senai.controller;
 import java.util.ArrayList;
 
 import br.com.senai.model.Cliente;
+import br.com.senai.model.Conta;
 import br.com.senai.utilitarios.Util;
 import br.com.senai.view.ClienteView;
 
 public class ClienteController {
 
-	private static ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
+	public static ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
 	private ClienteView cv;
 	
 	public ClienteController() {
@@ -74,5 +75,13 @@ public class ClienteController {
 			listaClientes.remove(cliente);
 			Util.continuar("Cliente removido com sucesso");
 		}
+	}
+	
+	public static ArrayList<Conta> gerarListaContas() {
+		ArrayList<Conta> listaContas = new ArrayList<Conta>();
+		for (Cliente c : listaClientes) {
+			listaContas.add(c.getConta());
+		}
+		return listaContas;
 	}
 }

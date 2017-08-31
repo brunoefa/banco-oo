@@ -7,6 +7,10 @@ public class Cliente {
 	private String cpf;
 	private Conta conta;
 	
+	public Cliente() {
+		
+	}
+	
 	public Cliente(String nome, String cpf) {
 		super();
 		this.nome = nome;

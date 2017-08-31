@@ -36,12 +36,12 @@ public class ClienteController {
 	
 	public void cadastrarCliente() {
 		Cliente cliente = cv.capturarCliente();
-//		listaClientes.add(cliente);
 		dao.salvar(cliente);
 		Util.continuar("Cliente cadastrado com sucesso!");
 	}
 	
 	public void listarClientes() {
+		ArrayList<Cliente> listaClientes = dao.buscarTodos();
 		cv.listarClientes(listaClientes);
 	}
 	

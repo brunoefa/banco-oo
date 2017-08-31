@@ -2,6 +2,8 @@ package br.com.senai.model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import br.com.senai.model.Cliente;
@@ -39,7 +41,25 @@ public class ClienteDao {
 	}
 	
 	public ArrayList<Cliente> buscarTodos() {
-		return null;
+		String sql = "SELECT * FROM cliente";
+		ArrayList<Cliente> listaClientes = new ArrayList<>();
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				Cliente c = new Cliente();
+				c.setId(rs.getInt("id"));
+				c.setNome(rs.getString("nome"));
+				c.setCpf(rs.getString("cpf"));
+				listaClientes.add(c);
+			}
+			ps.close();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new RuntimeException();
+		}
+		return listaClientes;
 	}
 	
 }

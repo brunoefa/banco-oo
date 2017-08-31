@@ -43,8 +43,9 @@ public class ClienteView {
 		Util.escreva("Visualizar Cliente");
 		Util.escreva("-----------------");
 		Util.escreva("");
-		Util.escreva("Nome:" + c.getNome());
-		Util.escreva("CPF:" + c.getCpf());
+		Util.escreva("Id: " + c.getId());
+		Util.escreva("Nome: " + c.getNome());
+		Util.escreva("CPF: " + c.getCpf());
 		Util.continuar();
 	}
 
@@ -53,7 +54,7 @@ public class ClienteView {
 		Util.escreva("Listar Clientes");
 		Util.escreva("-----------------");
 		for (Cliente cliente : listaClientes) {
-			Util.escreva(cliente.getCpf() + " - " + cliente.getNome());
+			Util.escreva(cliente.getId() + " - " +cliente.getCpf() + " - " + cliente.getNome());
 		}
 		Util.escreva("");
 		Util.continuar(listaClientes.size() + " cliente(s) encontrado(s)");

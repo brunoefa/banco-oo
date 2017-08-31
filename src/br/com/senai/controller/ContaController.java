@@ -18,7 +18,7 @@ public class ContaController {
 	
 	public ContaController() {
 		if (listaContas.size() == 0) {
-			listaContas = ClienteController.gerarListaContas();
+//			listaContas = ClienteController.gerarListaContas();
 		}
 		contaView = new ContaView();
 		clienteView = new ClienteView();
@@ -45,7 +45,7 @@ public class ContaController {
 	}
 	
 	public void cadastrarConta() {
-		Cliente cliente = clienteController.buscarCliente();
+		Cliente cliente = clienteController.buscarPorCpf();
 		if (cliente != null) {
 			Conta conta = contaView.capturarConta(cliente);
 			listaContas.add(conta);

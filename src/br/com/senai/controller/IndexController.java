@@ -1,6 +1,5 @@
 package br.com.senai.controller;
 
-import br.com.senai.model.ModelUtil;
 import br.com.senai.utilitarios.Util;
 import br.com.senai.view.IndexView;
 
@@ -8,7 +7,7 @@ public class IndexController {
 
 	public static void main(String[] args) {
 		
-		ClienteController.listaClientes = ModelUtil.popularBase();
+//		ClienteController.listaClientes = ModelUtil.popularBase();
 		
 		String opcao = "";
 		while (!opcao.equals("0")) {

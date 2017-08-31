@@ -3,14 +3,12 @@ package br.com.senai.controller;
 import java.util.ArrayList;
 
 import br.com.senai.model.Cliente;
-import br.com.senai.model.Conta;
 import br.com.senai.model.dao.ClienteDao;
 import br.com.senai.utilitarios.Util;
 import br.com.senai.view.ClienteView;
 
 public class ClienteController {
 
-	public static ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
 	private ClienteView cv;
 	private ClienteDao dao;
 	
@@ -26,7 +24,7 @@ public class ClienteController {
 		} else if (opcao.equals("2")) {
 			listarClientes();
 		} else if (opcao.equals("3")) {
-			buscarCliente();
+			buscarPorCpf();
 		} else if (opcao.equals("4")) {
 			excluirCliente();
 		} else if (opcao.equals("5")) {
@@ -45,17 +43,13 @@ public class ClienteController {
 		cv.listarClientes(listaClientes);
 	}
 	
-	public Cliente buscarCliente() {
+	public Cliente buscarPorCpf() {
 		Cliente clienteEncontrado = null;
 		String cpf = cv.capturarCpf();
-		for (Cliente cliente : listaClientes) {
-			if (cliente.getCpf().equals(cpf)) {
-				clienteEncontrado = cliente;
-				mostrarCliente(cliente);
-				break;
-			}
-		}
-		if (clienteEncontrado == null) {
+		clienteEncontrado = dao.buscarPorCpf(cpf);
+		if (clienteEncontrado != null) {
+			mostrarCliente(clienteEncontrado);
+		}else{
 			Util.continuar("Nenhum cliente foi encontrado");
 		}
 		return clienteEncontrado;
@@ -66,26 +60,17 @@ public class ClienteController {
 	}
 		
 	public void alterarCliente() {
-		Cliente cliente = buscarCliente();
+		Cliente cliente = buscarPorCpf();
 		if (cliente != null) {
 			cliente.setNome(cv.capturarNome());
+			dao.atualizar(cliente);
 			Util.continuar("Cliente alterado com sucesso");
 		}
 	}
 	
 	public void excluirCliente() {
-		Cliente cliente = buscarCliente();
-		if (cliente != null) {
-			listaClientes.remove(cliente);
-			Util.continuar("Cliente removido com sucesso");
-		}
-	}
-	
-	public static ArrayList<Conta> gerarListaContas() {
-		ArrayList<Conta> listaContas = new ArrayList<Conta>();
-		for (Cliente c : listaClientes) {
-			listaContas.add(c.getConta());
-		}
-		return listaContas;
+		Cliente cliente = buscarPorCpf();
+		dao.excluir(cliente);
+		Util.continuar("Cliente removido com sucesso");
 	}
 }
